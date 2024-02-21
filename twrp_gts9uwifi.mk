@@ -16,7 +16,7 @@ $(call inherit-product, vendor/omni/config/common.mk)
 $(call inherit-product, device/samsung/gts9uwifi/device.mk)
 
 PRODUCT_DEVICE := gts9uwifi
-PRODUCT_NAME := omni_gts9uwifi
+PRODUCT_NAME := twrp_gts9uwifi
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-X910
 PRODUCT_MANUFACTURER := samsung
