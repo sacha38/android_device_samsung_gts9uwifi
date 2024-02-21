@@ -1,17 +1,15 @@
-# mount point	    fstype		device			device2			flags
-# Symlinked partitions
-/system_image		emmc	/dev/block/bootdevice/by-name/system		flags=backup=0;flashimg;display="System Image";wipeingui
-/vendor_image		emmc	/dev/block/bootdevice/by-name/vendor		flags=backup=0;flashimg;display="Vendor Image";wipeingui
-/product_image		emmc	/dev/block/bootdevice/by-name/product		flags=backup=0;flashimg;display="Product Image";wipeingui
-/odm_image		emmc	/dev/block/bootdevice/by-name/odm		flags=backup=0;flashimg;display="Odm Image";wipeingui
-/system_ext_image	emmc	/dev/block/bootdevice/by-name/system_ext	flags=backup=0;flashimg;display="System_EXT Image";wipeingui
-/vendor_dlkm_image	emmc	/dev/block/bootdevice/by-name/vendor_dlkm	flags=backup=0;flashimg;display="Vendor_DLKM Image";wipeingui
-/system_dlkm_image	emmc	/dev/block/bootdevice/by-name/system_dlkm	flags=backup=0;flashimg;display="System_DLKM Image";wipeingui
-
-# Physical partitions
+/system             erofs     system                                           flags=display=system;logical
+/system             f2fs      system                                           flags=display=system;logical
+/system             ext4      system                                           flags=display=system;logical
+/vendor             erofs     vendor                                           flags=display=vendor;logical
+/system_ext         erofs     system_ext                                       flags=display=system_ext;logical
+/vendor_dlkm        erofs     vendor_dlkm                                      flags=display=vendor_dlkm;logical
+/product            erofs     product                                          flags=display=product;logical
+/odm                erofs     odm                                              flags=display=odm;logical
+/system_dlkm        erofs     system_dlkm                                      flags=display=system_dlkm;logical
 /boot               emmc      /dev/block/bootdevice/by-name/boot               flags=display=boot
 /recovery           emmc      /dev/block/bootdevice/by-name/recovery           flags=display=recovery
-/metadata           ext4      /dev/block/by-name/metadata                      flags=display=metadata
+/metadata           ext4      /dev/block/bootdevice/by-name/metadata           flags=display=metadata
 /data               f2fs      /dev/block/bootdevice/by-name/userdata           flags=display=data
 /cache              ext4      /dev/block/bootdevice/by-name/cache              flags=display=cache
 /efs                ext4      /dev/block/bootdevice/by-name/sec_efs            flags=display=efs
@@ -34,6 +32,3 @@
 /init_boot          emmc      /dev/block/bootdevice/by-name/init_boot          flags=display=init_boot
 /vm-bootsys         ext4      /dev/block/bootdevice/by-name/vm-bootsys         flags=display=vm-bootsys
 /qweslicstore       emmc      /dev/block/bootdevice/by-name/qweslicstore       flags=display=qweslicstore
-
-# Removable storage
-/usb-otg	vfat		/dev/block/sde1	/dev/block/sde			flags=display="USB-OTG";storage;wipeingui;removable
